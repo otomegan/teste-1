@@ -65,10 +65,38 @@ int main() {
             //--- processamento das opções ---
 
             switch(opcao){
-                case 1: 
+                case 1: // CADASTRO DE LIVRO
+                printf("cadastros de livros\n");
+                if(TotaldeLivros < MAX_LIVROS){
+                    printf("Digite o título do livro: ");
+                    fgets(Biblioteca[TotaldeLivros].titulo, TAM_STRING, stdin);
+                   
+                    /*
+                    Foi usado o fgets porque o scanf para de ler entre os espaços
+                    Portanto, em livros como "senhor dos aneis" ele não iria ler
+                    além de que o scanf não sabe o tamanho de sua variavel, ai ia ficar
+                    escrevendo sem limites, causando Buffer Overflow.
+
+                    a primeira parte do fgets indica o destino para guardar os dados,
+                    a segunda parte indica a parte título aonde vai ser digitado o nome do livro
+                    o stdin indica que vai ser digitado pelo teclado.
+                    */
+                    printf("Digite o nome do autor: ");
+                    fgets(Biblioteca[TotaldeLivros].autor, TAM_STRING, stdin);
+
+                    printf("Digite o nome da editora: ");
+                    fgets(Biblioteca[TotaldeLivros].editora, TAM_STRING, stdin);
+
+                    printf("Digite a edição do livro: ");
+                    scanf("%d", &Biblioteca[TotaldeLivros].edição);
+                    limparBuffer();
+
+                }
 
         }
 
     return 0;
+}
+
 }
 
