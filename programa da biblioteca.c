@@ -1,1 +1,74 @@
+#include <stdio.h>  
+#include <stdlib.h>
+#include <string.h> //para strctspn()
+/*
+==================================================================
+            SISTEMA DA BIBLIOTECA DE CADASTRO DE LIVROS
+==================================================================
+*/
+
+// ---constantes globais ---
+#define MAX_LIVROS 50
+#define TAM_STRING 100
+// o #define serve  para criar constantes para mudar valores de uma vez só
+
+
+//definição do struct --- livros ---
+struct Livro {
+    char titulo[TAM_STRING];
+    char autor[TAM_STRING];
+    char editora[TAM_STRING]
+    int edição;
+};
+//função de limpar o buffer de entrada
+void limparBuffer() {
+    int c; // variavel temporária para guardar o caractere lido
+
+    // loop que aspira os caracteres e limpa o que sobrou para funcionar fget e scanf
+    while ((c = getchar()) != '\n' && c != EOF) {
+        /* o corpo é vazio de propósito!! pega um caracter pelo getchar e guardado na variavel c
+         * o loop continua até encontrar a tecla enter '\n' ai
+         && c != EOF: Uma segurança extra, significa "e enquanto não for o fim da entrada".
+        O ponto e vírgula no final (ou chaves vazias {}) significa: "não faça nada com o caractere,
+         apenas jogue-o fora e continue o loop".
+
+
+         Regra simples: Sempre que você usa scanf para ler um número (%d) 
+         ou float (%f), e a próxima coisa que você vai ler é um texto 
+         (com fgets ou scanf("%s")), chame o limparBuffer() entre eles.
+        */
+}
+
+int main() {
+    struct Livro Biblioteca [MAX_LIVROS];
+    /* 
+    a struct, o primeiro termo "Livro" define o timo de struct, o segundo
+    o segundo termo "Biblioteca" é o nome da nova variável e entre cochetes é o tamanho.
+    */
+    int TotaldeLivros = 0;
+    int opcao;
+
+    // ---- FUNÇÃO DO PARA REALIZAR O LAÇO ----
+        do{
+            printf("========================================\n");
+            printf("BIBLIOTECA - PARTE 1\n")
+            printf("========================================\n");
+            printf("1 - Cadastrar novo livro\n");
+            printf("2 - Listar livros cadastrados\n");
+            printf("0 - Sair\n");
+            printf("========================================\\n")
+            printf("Escolha uma opção: ");
+            scanf("%d", &opcao);
+            limparBuffer(); //limpar o buffer de entrada
+
+
+            //--- processamento das opções ---
+
+            switch(opcao){
+                case 1: 
+
+        }
+
+    return 0;
+}
 
