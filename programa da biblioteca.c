@@ -91,6 +91,64 @@ int main() {
                     scanf("%d", &Biblioteca[TotaldeLivros].edição);
                     limparBuffer();
 
+
+                    biblioteca[totalLivros].nome[strcspn(biblioteca[totalLivros].nome, "\n")];
+                    biblioteca[totalLivros].autor[strcspn(biblioteca[totalLivros].autor, "\n")];
+                    biblioteca[totalLivros].editora[strcspn(biblioteca[totalLivros].editora, "\n")];
+                    
+                    printf("Digite a edicao: ");
+                    scanf("%d", &biblioteca[totalLivros].edicao);
+                    limparBufferEntrada();
+                    
+                    totalLivros++;
+                    
+                    printf("\nLivro cadastrado com sucesso!\n");
+                } else {
+                    printf("Biblioteca cheia! Não é possível cadastrar mais livros!\n");
+                }
+                
+                printf ("\nPressione Enter para continuar...");
+                getchar(); //pausa para o usuário ler a mensagem antes de voltar ao menu.
+                break;
+                
+            case 2: // Listagem de livros
+                printf("--- Lista de Livros Cadastrados---\n\n");
+                
+                if (totalLivros == 0){
+                    printf("Nenhum livro cadastrado ainda. \n");
+                } else {
+                    for (int i = 0; i <totalLivros; i++){
+                        printf("--------------------------------\n");
+                        printf("LIVRO %d\n", i + 1);
+                        printf("Nome: %s\n", biblioteca[i].nome);
+                        printf("Autor: %s\n", biblioteca[i].autor);
+                        printf("Editora: %s\n", biblioteca[i].editora);
+                        printf("Edicao: %d\n", biblioteca[i].edicao);
+                    }
+                    printf("--------------------------------\n");
+                }
+                
+                // A pausa é crucial para que o usuário veja a lista antes
+                // do próximo loop limpar a tela. 
+                printf("\nPressione Enter para continuar...");
+                getchar();
+                break;
+                
+            case 0: // Sair
+                printf("\nSaindo do sistema...\n");
+                break;
+                
+            default: // OPÇÃO INVÁLIDA
+                printf("\nOpcao invalida! Tente novamente.\n");
+                printf("\nPressione Enter para continuar...");
+                getchar();
+                break;
+        }
+    } while (opcao != 0);
+    
+    return 0; //Fim do programa.
+}
+
                 }
 
         }
@@ -98,5 +156,4 @@ int main() {
     return 0;
 }
 
-}
 
